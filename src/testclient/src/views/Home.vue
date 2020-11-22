@@ -7,6 +7,7 @@
 
 <script>
 // @ is an alias to /src
+// eslint-disable-next-line import/no-unresolved
 import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {

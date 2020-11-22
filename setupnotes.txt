@@ -1,0 +1,9 @@
+My setup notes
+
+Forked the repo and created my branch 'jpflood'.
+Setup dotnet project and run.
+I needed node installing as I hadn't set it up yet on my laptop.
+npm installed and did audit fix.
+Getting linebreak/extensions/no-unresolved import eslint issues. Ignored locally for now but long 
+term I need get something global.
+Crash course in vue development.

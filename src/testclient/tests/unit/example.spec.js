@@ -1,5 +1,7 @@
 import { expect } from 'chai';
 import { shallowMount } from '@vue/test-utils';
+// eslint-disable-next-line import/extensions
+// eslint-disable-next-line import/no-unresolved
 import HelloWorld from '@/components/HelloWorld.vue';
 
 describe('HelloWorld.vue', () => {
