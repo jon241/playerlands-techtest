@@ -6,8 +6,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="players.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="players.json" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
 </Project>

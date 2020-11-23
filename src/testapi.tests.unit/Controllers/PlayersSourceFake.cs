@@ -12,7 +12,7 @@ namespace testapi.tests.unit.Controllers
             _players = players;
         }
 
-        public IEnumerable<Player> Get()
+        public IEnumerable<Player> GetPlayers()
         {
             return _players;
         }

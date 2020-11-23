@@ -28,7 +28,9 @@ namespace testapi
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddTransient<IPlayersSource, PlayersSourceJson>();
+            services.AddTransient<IPlayersSource, PlayersSourceJson>(s => 
+                new PlayersSourceJson(Configuration["PlayersJsonFile"])
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,5 +49,10 @@ namespace testapi
             app.UseHttpsRedirection();
             app.UseMvc();
         }
+    }
+
+    public class App
+    {
+        public string PlayersJsonFile { get; set; }
     }
 }

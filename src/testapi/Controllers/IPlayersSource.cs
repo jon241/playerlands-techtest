@@ -4,6 +4,6 @@ namespace testapi.Controllers
 {
     public interface IPlayersSource
     {
-        IEnumerable<Player> Get();
+        IEnumerable<Player> GetPlayers();
     }
 }

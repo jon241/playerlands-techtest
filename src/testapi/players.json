@@ -1,0 +1,19 @@
+{
+	"players": [
+		{
+			"username": "player",
+			"dateJoined": "2020-09-19",
+			"email": "playerone@gmail.co.uk"
+		},
+		{
+			"username": "threepigs",
+			"dateJoined": "2020-09-20",
+			"email": "threepigs@gmail.co.uk"
+		},
+		{
+			"username": "marioscat",
+			"dateJoined": "2020-08-30",
+			"email": "johnsmith@hotmail.co.uk"
+		}
+	]
+}

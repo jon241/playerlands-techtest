@@ -1,18 +1,43 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace testapi.Controllers
 {
+    /// <summary>
+    /// Players source Json
+    /// </summary>
     public class PlayersSourceJson : IPlayersSource
     {
-        public IEnumerable<Player> Get()
-        {
-            List<Player> players = new List<Player>();
-            players.Add(new Player() { UserName = "player1", DateJoined = "2020-10-22", Email = "player1@email.com" });
+        private readonly string _fileSource;
 
-            return players;
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="fileSource">Location of Json file</param>
+        public PlayersSourceJson(string fileSource)
+        {
+            if (string.IsNullOrEmpty(fileSource))
+                throw new ArgumentException("Value cannot be null or empty.", nameof(fileSource));
+
+            if (!File.Exists(fileSource))
+                throw new FileNotFoundException($"File not found: {fileSource}");
+
+            _fileSource = fileSource;
+        }
+
+        /// <summary>
+        /// Get players from configured Json file
+        /// </summary>
+        /// <returns>List of players</returns>
+        public IEnumerable<Player> GetPlayers()
+        {
+            PlayersCollection collection = JsonConvert.DeserializeObject<PlayersCollection>(File.ReadAllText(_fileSource));
+
+            return collection.players.ToList();
         }
     }
 }

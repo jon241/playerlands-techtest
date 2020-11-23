@@ -18,4 +18,10 @@
     <ProjectReference Include="..\..\src\testapi\testapi.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="testplayers.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

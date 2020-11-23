@@ -18,11 +18,11 @@ namespace testapi.Controllers
             _playersSource = playersSource;
         }
 
-        // GET api/values
+        // GET api/players
         [HttpGet]
         public ActionResult<IEnumerable<Player>> Get()
         {
-            return new List<Player>(_playersSource.Get());
+            return new List<Player>(_playersSource.GetPlayers());
         }
     }
 }
