@@ -12,3 +12,6 @@ Normally I'd create integration tests for the API but as we have UI tests I have
 The design of the api (injected dependencies, separations, interfaces, responsibilties etc) and test coverage is typical of what I would produce. 
 Along with coverage of the UI with tests.
 Note there is no logging right now but I would normally enable it to capture issues.
+For some reason my use of axios wasnt working but I realised the base url, although set, wasnt get passed to 
+my GET call. Then when I did set it directly I had a CORS issue and that needed enabling in the web API and my FireFox now has an addon to pretend CORS is allowed also.
+Finally I had the end to end working.

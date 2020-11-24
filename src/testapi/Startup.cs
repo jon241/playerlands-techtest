@@ -16,6 +16,7 @@ namespace testapi
 {
     public class Startup
     {
+        
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -26,6 +27,15 @@ namespace testapi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(options =>
+            {
+                options.AddPolicy("MyCorsPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:5000");
+                    });
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddTransient<IPlayersSource, PlayersSourceJson>(s => 
@@ -46,13 +56,10 @@ namespace testapi
                 app.UseHsts();
             }
 
+            app.UseCors();
+
             app.UseHttpsRedirection();
             app.UseMvc();
         }
-    }
-
-    public class App
-    {
-        public string PlayersJsonFile { get; set; }
     }
 }

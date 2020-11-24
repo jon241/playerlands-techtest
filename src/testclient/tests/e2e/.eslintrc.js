@@ -8,6 +8,7 @@ module.exports = {
   },
   rules: {
     strict: 'off',
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "arrow-body-style": 0
   },
 };
