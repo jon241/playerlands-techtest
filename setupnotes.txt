@@ -1,22 +1,22 @@
-My setup notes
+# My setup notes
 
+## Both projects
 Forked the repo and created my branch 'jpflood'.
 Setup dotnet project and run.
-I needed node installing as I hadn't set it up yet on my laptop.
-npm installed and did audit fix.
-Getting linebreak/extensions/no-unresolved import eslint issues. Ignored locally for now but long 
-term I need get something global and neatly set up.
-Crash course in vue development.
-Created solution file for testapi itself and used VS2019 for API development as its currently a better IDE than VSCode and added unit tests.
-Normally I'd create integration tests for the API but as we have UI tests I haven't done this.
-The design of the api (injected dependencies, separations, interfaces, responsibilties etc) and test coverage is typical of what I would produce. 
-Along with coverage of the UI with tests.
-Note there is no logging right now but I would normally enable it to capture issues.
-For some reason my use of axios wasnt working but I realised the base url, although set, wasnt get passed to 
-my GET call. Then when I did set it directly I had a CORS issue and that needed enabling in the web API and my FireFox now has an addon to pretend CORS is allowed also.
-Finally I had the end to end working.
+I needed node installing as I hadn't set it up yet on my laptop. NPM installed and did audit fix.
+Getting linebreak/extensions/no-unresolved import eslint issues. Ignored locally for now but long term I need get something global and neatly set up.
 
-# UI Tests
+## API development
+I created a solution file for testapi itself and used VS2019 for API development as its currently a better IDE than VSCode for C# projects and added unit tests.
+Normally I'd create integration tests for the API but as we have UI end-to-end tests I haven't done this.
+The design of the api (injected dependencies, separations, interfaces, responsibilties etc) and test coverage is typical of what I would produce. Along with coverage of the UI with tests.
+Note there is no additional logging from me right now but I would normally enable it to capture issues.
+
+## Vue development
+This has been a real crash course in vue development.
+For some reason my use of axios wasnt working but I then realised the base url, although set in main.js, wasn't passed to my GET call. Then when I did set it directly I had a CORS issue and I thought I had to enable in the web API but my FireFox addon pretend CORS is allowed and Chrome security is disabled for UI testing too. Finally, I had the end to end working.
+
+## UI Tests
 I did not perform TDD correctly for the UI tests as I was trying to figure out how to get the
 players listed form the API response in the PlayersList component.
 I did try to get the PlayersList component to be tested with stubbed data rows (with sinon and 
