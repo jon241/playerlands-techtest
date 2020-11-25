@@ -20,7 +20,6 @@
 // eslint-disable-next-line import/extensions
 // eslint-disable-next-line import/no-unresolved
 // eslint-disable-next-line import/extensions
-// import playersAPI from '@/services/api/Players.js';
 import axios from 'axios';
 
 axios.defaults.baseURL = 'http://localhost:5000/api';
@@ -33,18 +32,7 @@ export default {
     };
   },
   created() {
-    // axios.get('/players')
-    //   .then((response) => {
-    //     console.log(response);
-    //     this.players = response.data;
-    //   }).catch(error => console.log(error));
     this.getPlayers();
-  //   playersAPI.getPlayers()
-  //     .then((players) => {
-  //       // console.log(players);
-  //       this.players = players;
-  //     })
-  //     .catch(error => console.log(error));
   },
   methods: {
     getPlayers() {

@@ -15,3 +15,10 @@ Note there is no logging right now but I would normally enable it to capture iss
 For some reason my use of axios wasnt working but I realised the base url, although set, wasnt get passed to 
 my GET call. Then when I did set it directly I had a CORS issue and that needed enabling in the web API and my FireFox now has an addon to pretend CORS is allowed also.
 Finally I had the end to end working.
+
+# UI Tests
+I did not perform TDD correctly for the UI tests as I was trying to figure out how to get the
+players listed form the API response in the PlayersList component.
+I did try to get the PlayersList component to be tested with stubbed data rows (with sinon and 
+AxiosMockAdapter) but my current implementation will prevent that until I can further understand how to properly separate the concerns and stub/mock/inject the fake data.
+I also tried to add environment configuration for the API url but I couldnt get it to work, again, I would need more time to learn how to do that.
