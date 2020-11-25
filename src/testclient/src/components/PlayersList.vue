@@ -1,13 +1,13 @@
 <template>
     <div id="players">
-        <h2 id = "players-heading">Players</h2>
+        <p>All your players listed here.</p>
         <table id = "players-table">
             <tr>
-                <th>UserName</th>
+                <th>User Name</th>
                 <th>Email</th>
-                <th>DateJoined</th>
+                <th>Date Joined</th>
             </tr>
-            <tr v-for = "player in playersfound" :key = "player.dateJoined">
+            <tr v-for = "player in playersfound" :key = "player.userName">
                 <td>{{player.userName}}</td>
                 <td>{{player.email}}</td>
                 <td>{{player.dateJoined}}</td>
@@ -23,7 +23,7 @@
 // import playersAPI from '@/services/api/Players.js';
 import axios from 'axios';
 
-// axios.defaults.baseUrl = 'http://localhost:5000/api';
+axios.defaults.baseURL = 'http://localhost:5000/api';
 
 export default {
   name: 'PlayersList',
@@ -48,10 +48,8 @@ export default {
   },
   methods: {
     getPlayers() {
-      // console.log(axios.defaults.baseURL);
-      axios.get('http://localhost:5000/api/players')
+      axios.get('/players')
         .then((response) => {
-          // why does this have no players when the API itself works???
           console.log(response);
           this.playersfound = response.data;
         }).catch(error => console.log(error));
@@ -66,10 +64,7 @@ export default {
 #players {
     width: 90%;
     margin: auto;
-    text-align: center;
-}
-#players-heading {
-    font-family: 'Sen', sans-serif;
+    text-align: left;
 }
 #players-table {
     width: 100%;
