@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace testapi.Controllers
@@ -21,7 +20,6 @@ namespace testapi.Controllers
 
         // GET api/players
         [HttpGet]
-        [EnableCors("MyCorsPolicy")]
         public ActionResult<IEnumerable<Player>> Get()
         {
             return new List<Player>(_playersSource.GetPlayers());
