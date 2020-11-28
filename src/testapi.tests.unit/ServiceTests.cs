@@ -5,6 +5,7 @@ using System.IO;
 using System.Net;
 using System.Net.Http;
 using testapi.Controllers;
+using testapi.framework;
 
 namespace testapi.tests.unit
 {

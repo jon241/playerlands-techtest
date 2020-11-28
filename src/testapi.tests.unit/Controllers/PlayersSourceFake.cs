@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using testapi.Controllers;
+using testapi.framework;
 
 namespace testapi.tests.unit.Controllers
 {

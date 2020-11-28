@@ -1,4 +1,4 @@
-namespace testapi.Controllers
+namespace testapi.framework
 {
     public class Player
     {

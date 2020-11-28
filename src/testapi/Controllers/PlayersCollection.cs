@@ -1,4 +1,6 @@
-﻿namespace testapi.Controllers
+﻿using testapi.framework;
+
+namespace testapi.Controllers
 {
     public class PlayersCollection
     {

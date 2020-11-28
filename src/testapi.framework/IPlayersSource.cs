@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace testapi.Controllers
+namespace testapi.framework
 {
     public interface IPlayersSource
     {

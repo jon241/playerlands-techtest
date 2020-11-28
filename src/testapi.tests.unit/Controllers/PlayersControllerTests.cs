@@ -4,6 +4,7 @@ using testapi.Controllers;
 using System.Linq;
 using System;
 using Microsoft.AspNetCore.Mvc;
+using testapi.framework;
 
 namespace testapi.tests.unit.Controllers
 {
