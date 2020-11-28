@@ -8,6 +8,8 @@
   <ItemGroup>
     <Compile Remove="Controllers\IPlayersSource.cs" />
     <Compile Remove="Controllers\Player.cs" />
+    <Compile Remove="Controllers\PlayersCollection.cs" />
+    <Compile Remove="Controllers\PlayersSourceJson.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\testapi.framework\testapi.framework.csproj" />
+    <ProjectReference Include="..\testapi.players\testapi.players.csproj" />
   </ItemGroup>
 
 </Project>

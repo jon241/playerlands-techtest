@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using testapi.framework;
 
-namespace testapi.Controllers
+namespace testapi.players
 {
     /// <summary>
     /// Players source Json

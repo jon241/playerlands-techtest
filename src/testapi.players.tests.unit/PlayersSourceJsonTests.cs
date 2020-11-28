@@ -2,9 +2,8 @@
 using System;
 using System.IO;
 using System.Linq;
-using testapi.Controllers;
 
-namespace testapi.tests.unit.Controllers
+namespace testapi.players.tests.unit
 {
     [TestClass]
     [TestCategory("Unit")]
