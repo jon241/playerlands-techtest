@@ -1,13 +1,12 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
-using testapi.Controllers;
 using testapi.framework;
 
-namespace testapi.tests.unit
+namespace testapi.tests.integration
 {
     [TestClass]
     [TestCategory("Integration")]
@@ -36,7 +35,7 @@ namespace testapi.tests.unit
         {
             HttpClientHandler clientHandler = new HttpClientHandler();
             clientHandler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => { return true; };
-            
+
             return clientHandler;
         }
 
