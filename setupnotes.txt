@@ -8,9 +8,11 @@ Getting linebreak/extensions/no-unresolved import eslint issues. Ignored locally
 
 ## API development
 I created a solution file for testapi itself and used VS2019 for API development as its currently a better IDE than VSCode for C# projects and added unit tests.
-Before submission of this project I did not create the integration tests but as we had UI end-to-end tests I left it as is. Post submission the integration test is created and separated from the unit test project.
 The design of the api (injected dependencies, separations, interfaces, responsibilties etc) and test coverage is typical of what I would produce. Along with coverage of the UI with tests.
-Note there is no additional logging from me right now but I would normally enable it to capture issues.
+No additional logging implemented.
+### Post submission
+Before submission of this project I did not create the integration tests but as we had UI end-to-end tests I left it as is. The integration test project is now created and separated from the unit test project.
+Logger now injected into controller.
 The Players framework separated into own project for reuse along with the players classes.
 
 ## Vue development

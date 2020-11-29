@@ -6,13 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\IPlayersSource.cs" />
-    <Compile Remove="Controllers\Player.cs" />
-    <Compile Remove="Controllers\PlayersCollection.cs" />
-    <Compile Remove="Controllers\PlayersSourceJson.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Remove="players.json" />
   </ItemGroup>
 
