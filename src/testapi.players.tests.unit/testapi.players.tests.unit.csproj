@@ -18,7 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="testplayers.json">
+    <None Update="badplayers.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="goodplayers.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -23,6 +23,8 @@ namespace testapi.players
             if (string.IsNullOrEmpty(fileSource))
                 throw new ArgumentException("Value cannot be null or empty.", nameof(fileSource));
 
+            // Checking the file exists here because if the file is not found
+            // I want to know ASAP and during startup is the earliest time.
             if (!File.Exists(fileSource))
                 throw new FileNotFoundException($"File not found: {fileSource}");
 
@@ -35,9 +37,17 @@ namespace testapi.players
         /// <returns>List of players</returns>
         public IEnumerable<Player> GetPlayers()
         {
-            PlayersCollection collection = JsonConvert.DeserializeObject<PlayersCollection>(File.ReadAllText(_fileSource));
+            try
+            {
+                PlayersCollection collection = JsonConvert.DeserializeObject<PlayersCollection>(File.ReadAllText(_fileSource));
 
-            return collection.players.ToList();
+                return collection.players.ToList();
+            } 
+            catch (Exception exception)
+            {
+                exception.Data.Add("FileSource", _fileSource);
+                throw;
+            }
         }
     }
 }

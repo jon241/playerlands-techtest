@@ -1,0 +1,13 @@
+{
+  "players": [
+    {
+      "username": "player1",
+      "dateJoined": "2020-10-01",
+      "email": "player1@email.com"
+    },
+    {
+      "username": "player2",
+      "dateJoined": "2020-10-02",
+      "email": "player2@email.com"
+    }
+  ]

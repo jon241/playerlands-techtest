@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Linq;
@@ -46,7 +47,7 @@ namespace testapi.players.tests.unit
         [TestMethod]
         public void WhenGetHasFileThenReturnPlayers()
         {
-            var source = new PlayersSourceJson(".\\testplayers.json");
+            var source = new PlayersSourceJson(".\\goodplayers.json");
 
             var players = source.GetPlayers();
 
@@ -59,6 +60,22 @@ namespace testapi.players.tests.unit
                 Assert.AreEqual($"2020-10-0{i}", player.DateJoined, "DateJoined");
                 Assert.AreEqual($"player{i}@email.com", player.Email, "Email");
                 i++;
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(JsonSerializationException))]
+        public void WhenGetHasBadJsonDataThenThrowJsonException()
+        {
+            try
+            {
+                new PlayersSourceJson(".\\badplayers.json").GetPlayers();
+            }
+            catch (JsonSerializationException exception)
+            {
+                Assert.IsTrue(exception.Message.StartsWith("Unexpected end"), "Message");
+                Assert.AreEqual(exception.Data["FileSource"], ".\\badplayers.json", "DataFileSource");
+                throw;
             }
         }
     }
