@@ -46,7 +46,7 @@ namespace testapi.tests.unit.Controllers
             }
             catch (ArgumentNullException exception)
             {
-                Assert.AreEqual("Value cannot be null.\r\nParameter name: logger", exception.Message, "Message");
+                Assert.AreEqual("Value cannot be null. (Parameter 'logger')", exception.Message, "Message");
                 throw;
             }
         }
@@ -62,7 +62,7 @@ namespace testapi.tests.unit.Controllers
             }
             catch (ArgumentNullException exception)
             {
-                Assert.AreEqual("Value cannot be null.\r\nParameter name: playersSource", exception.Message, "Message");
+                Assert.AreEqual("Value cannot be null. (Parameter 'playersSource')", exception.Message, "Message");
                 throw;
             }
         }
