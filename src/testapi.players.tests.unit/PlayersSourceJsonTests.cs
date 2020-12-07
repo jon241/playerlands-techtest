@@ -45,6 +45,7 @@ namespace testapi.players.tests.unit
         // Normally I would put this test would be in an integrations tests project but
         // easier for this example to remain here
         [TestMethod]
+        [DeploymentItem("goodplayers.json")]
         public void WhenGetHasFileThenReturnPlayers()
         {
             var source = new PlayersSourceJson(".\\goodplayers.json");
@@ -64,6 +65,8 @@ namespace testapi.players.tests.unit
         }
 
         [TestMethod]
+        [DeploymentItem("badplayers.json")]
+
         [ExpectedException(typeof(JsonSerializationException))]
         public void WhenGetHasBadJsonDataThenThrowJsonException()
         {
