@@ -17,3 +17,7 @@ TestClient [./src/testclient/README.md](./src/testclient/README.md)
 ## Submission
 
 Create a branch, named to identify yourself and push your solution.
+
+## My changes
+Added a linter
+[![GitHub Super-Linter](https://github.com/jon241/playerlands-techtest/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
