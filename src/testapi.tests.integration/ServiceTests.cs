@@ -28,7 +28,7 @@ namespace testapi.tests.integration
             }
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode, "StatusCode");
-            Player[] parsedResponse = ParseContent<Player[]>(response.Content);
+            Player[] parsedResponse = await ParseContentAsync<Player[]>(response.Content);
             Assert.AreEqual(3, parsedResponse.Length, "Players count");
         }
 
@@ -40,11 +40,11 @@ namespace testapi.tests.integration
             return clientHandler;
         }
 
-        private static T ParseContent<T>(HttpContent httpContent)
+        private static async Task<T> ParseContentAsync<T>(HttpContent httpContent)
         {
             T parsedContent;
 
-            using (var reader = new StreamReader(httpContent.ReadAsStream()))
+            using (var reader = new StreamReader(await httpContent.ReadAsStreamAsync()))
             {
                 string contentAsString = reader.ReadToEnd();
                 parsedContent = JsonConvert.DeserializeObject<T>(contentAsString);
