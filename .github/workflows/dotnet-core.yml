@@ -22,4 +22,4 @@ jobs:
     - name: Build
       run: dotnet build ./src/testapi.sln --configuration Release --no-restore
     - name: Test
-      run: dotnet test ./src/testapi.sln --no-restore --verbosity normal --filter TestCatgeory=Unit
+      run: dotnet test ./src/testapi.sln --no-restore --verbosity normal --filter TestCategory=Unit
