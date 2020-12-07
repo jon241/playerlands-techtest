@@ -4,6 +4,6 @@ namespace testapi.framework
 {
     public interface IPlayersSource
     {
-        IEnumerable<Player> GetPlayers();
+        IEnumerable<Player> GetPlayers()
     }
 }
