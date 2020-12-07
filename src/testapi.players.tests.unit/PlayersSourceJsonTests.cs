@@ -22,7 +22,7 @@ namespace testapi.players.tests.unit
             }
             catch (ArgumentException exception)
             {
-                Assert.AreEqual("Value cannot be null or empty.\r\nParameter name: fileSource", exception.Message, "Message");
+                Assert.AreEqual("Value cannot be null or empty. (Parameter 'fileSource')", exception.Message, "Message");
                 throw;
             }
         }

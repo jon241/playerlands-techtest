@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using testapi.framework;
 
 namespace testapi.tests.integration
@@ -15,7 +16,7 @@ namespace testapi.tests.integration
         private const string _uriString = "http://localhost:5000/api/players";
 
         [TestMethod]
-        public void WhenGETCalledThenReturnPlayers()
+        public async void WhenGETCalledThenReturnPlayers()
         {
             // could be run on a build process where the url is injected or retrieved from config
             HttpRequestMessage httpRequest = CreateRequest();
@@ -23,7 +24,7 @@ namespace testapi.tests.integration
 
             using (HttpClient client = new HttpClient(CreateHandler()))
             {
-                response = client.Send(httpRequest);
+                response = await client.SendAsync(httpRequest);
             }
 
             Assert.AreEqual(HttpStatusCode.OK, response.StatusCode, "StatusCode");
