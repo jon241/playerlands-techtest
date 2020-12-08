@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace testapi.players.tests.unit
 {
@@ -84,7 +85,7 @@ namespace testapi.players.tests.unit
         internal string GetFullPathToFile(string pathRelativeUnitTestingFile)
         {
             string folderProjectLevel = GetPathToCurrentUnitTestProject();
-            string final = System.IO.Path.Combine(folderProjectLevel, pathRelativeUnitTestingFile);
+            string final = Path.Combine(folderProjectLevel, pathRelativeUnitTestingFile);
 
             return final;
         }
@@ -94,12 +95,13 @@ namespace testapi.players.tests.unit
         /// <returns></returns>
         private string GetPathToCurrentUnitTestProject()
         {
-            string pathAssembly = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string folderAssembly = System.IO.Path.GetDirectoryName(pathAssembly);
+            string pathAssembly = Assembly.GetExecutingAssembly().Location;
+            string folderAssembly = Path.GetDirectoryName(pathAssembly);
 
-            if (folderAssembly.EndsWith("\\") == false) folderAssembly = folderAssembly + "\\";
+            if (!folderAssembly.EndsWith("\\")) 
+                folderAssembly = $"{folderAssembly}\\";
 
-            string folderProjectLevel = System.IO.Path.GetFullPath(folderAssembly);// + "..\\..\\");
+            string folderProjectLevel = $"{Path.GetFullPath(folderAssembly)}..\\..\\..\\";
 
             return folderProjectLevel;
         }
