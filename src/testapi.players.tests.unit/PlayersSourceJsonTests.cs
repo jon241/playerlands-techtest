@@ -45,10 +45,9 @@ namespace testapi.players.tests.unit
         // Normally I would put this test would be in an integrations tests project but
         // easier for this example to remain here
         [TestMethod]
-        [DeploymentItem("goodplayers.json")]
         public void WhenGetHasFileThenReturnPlayers()
         {
-            var source = new PlayersSourceJson(".\\goodplayers.json");
+            var source = new PlayersSourceJson($"{GetFullPathToFile("goodplayers.json")}");
 
             var players = source.GetPlayers();
 
@@ -65,21 +64,44 @@ namespace testapi.players.tests.unit
         }
 
         [TestMethod]
-        [DeploymentItem("badplayers.json")]
-
         [ExpectedException(typeof(JsonSerializationException))]
         public void WhenGetHasBadJsonDataThenThrowJsonException()
         {
+            string expectedPath = GetFullPathToFile("badplayers.json");
+
             try
             {
-                new PlayersSourceJson(".\\badplayers.json").GetPlayers();
+                new PlayersSourceJson($"{expectedPath}").GetPlayers();
             }
             catch (JsonSerializationException exception)
             {
                 Assert.IsTrue(exception.Message.StartsWith("Unexpected end"), "Message");
-                Assert.AreEqual(exception.Data["FileSource"], ".\\badplayers.json", "DataFileSource");
+                Assert.AreEqual(exception.Data["FileSource"], expectedPath, "DataFileSource");
                 throw;
             }
+        }
+
+        internal string GetFullPathToFile(string pathRelativeUnitTestingFile)
+        {
+            string folderProjectLevel = GetPathToCurrentUnitTestProject();
+            string final = System.IO.Path.Combine(folderProjectLevel, pathRelativeUnitTestingFile);
+
+            return final;
+        }
+        /// <summary>
+        /// Get the path to the current unit testing project.
+        /// </summary>
+        /// <returns></returns>
+        private string GetPathToCurrentUnitTestProject()
+        {
+            string pathAssembly = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string folderAssembly = System.IO.Path.GetDirectoryName(pathAssembly);
+
+            if (folderAssembly.EndsWith("\\") == false) folderAssembly = folderAssembly + "\\";
+
+            string folderProjectLevel = System.IO.Path.GetFullPath(folderAssembly);// + "..\\..\\");
+
+            return folderProjectLevel;
         }
     }
 }
