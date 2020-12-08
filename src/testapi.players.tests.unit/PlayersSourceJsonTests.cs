@@ -46,6 +46,8 @@ namespace testapi.players.tests.unit
         // Normally I would put this test would be in an integrations tests project but
         // easier for this example to remain here
         [TestMethod]
+        [TestCategory("Integration")]
+
         public void WhenGetHasFileThenReturnPlayers()
         {
             var source = new PlayersSourceJson($"{GetFullPathToFile("goodplayers.json")}");
@@ -65,6 +67,8 @@ namespace testapi.players.tests.unit
         }
 
         [TestMethod]
+        [TestCategory("Integration")]
+
         [ExpectedException(typeof(JsonSerializationException))]
         public void WhenGetHasBadJsonDataThenThrowJsonException()
         {
@@ -98,10 +102,10 @@ namespace testapi.players.tests.unit
             string pathAssembly = Assembly.GetExecutingAssembly().Location;
             string folderAssembly = Path.GetDirectoryName(pathAssembly);
 
-            if (!folderAssembly.EndsWith("\\")) 
+            if (!folderAssembly.EndsWith("//")) 
                 folderAssembly = $"{folderAssembly}\\";
 
-            string folderProjectLevel = $"{Path.GetFullPath(folderAssembly)}..\\..\\..\\";
+            string folderProjectLevel = $"{Path.GetFullPath(folderAssembly)}../../../";
 
             return folderProjectLevel;
         }
