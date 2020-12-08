@@ -8,10 +8,10 @@ using System.Reflection;
 namespace testapi.players.tests.unit
 {
     [TestClass]
-    [TestCategory("Unit")]
     public class PlayersSourceJsonTests
     {
         [TestMethod]
+        [TestCategory("Unit")]
         [DataRow(null)]
         [DataRow("")]
         [ExpectedException(typeof(ArgumentException))]
@@ -29,6 +29,7 @@ namespace testapi.players.tests.unit
         }
 
         [TestMethod]
+        [TestCategory("Unit")]
         [ExpectedException(typeof(FileNotFoundException))]
         public void WhenConstructorHasUnknownFileSourceThenThrowFileNotFoundException()
         {
