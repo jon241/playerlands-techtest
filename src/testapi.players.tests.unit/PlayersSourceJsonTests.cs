@@ -103,7 +103,7 @@ namespace testapi.players.tests.unit
             string pathAssembly = Assembly.GetExecutingAssembly().Location;
             string folderAssembly = Path.GetDirectoryName(pathAssembly);
 
-            if (!folderAssembly.EndsWith("//")) 
+            if (!folderAssembly.EndsWith("//"))
                 folderAssembly = $"{folderAssembly}\\";
 
             string folderProjectLevel = $"{Path.GetFullPath(folderAssembly)}../../../";
